@@ -148,7 +148,7 @@ def get_secret_key():
     with open(path) as f:
         secret_key = f.readline()
 
-    return secret_key
+    return secret_key.strip()
 
 
 if __name__ == '__main__':
