@@ -33,10 +33,10 @@ async def on_message(message: discord.Message):
     if "alive" in message.content:
         await message.channel.send("Bark bork! I'm alive!")
 
-    command_list = ['$help', '$info']
+    command_list = ['!help', '!info']
 
     if isinstance(message.channel, discord.DMChannel) and message.content not in command_list:
-        await message.author.send("Bark bork! Du erfährst mehr über mich mit $help und $info!")
+        await message.author.send("Bark bork! Du erfährst mehr über mich mit !help und !info!")
 
 
 @bot.command()
