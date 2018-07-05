@@ -32,9 +32,13 @@ async def greet(ctx):
 
 
 def get_secret_key():
-    secret_key_path = '~/.foxbot.env'
-    path = os.path.expanduser(secret_key_path)
-    with open(path) as f:
+    foxbot_dir = os.path.expanduser('~/.foxbot')
+    if not os.path.exists(foxbot_dir):
+        os.makedirs(foxbot_dir)
+
+    secret_key_file_name = '.env'
+    full_path = '/'.join((foxbot_dir, secret_key_file_name))
+    with open(full_path) as f:
         secret_key = f.readline()
 
     return secret_key.strip()
